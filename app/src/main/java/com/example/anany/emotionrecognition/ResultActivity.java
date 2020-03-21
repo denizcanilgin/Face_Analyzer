@@ -10,21 +10,31 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.contract.Face;
 
+import java.io.ByteArrayInputStream;
+
 public class ResultActivity extends AppCompatActivity {
+
+    String data;
+    byte[] byteArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        String data = getIntent().getStringExtra("list_faces");
+         data = getIntent().getStringExtra("list_faces");
+
 
         Gson gson = new Gson();
         Face[] faces = gson.fromJson(data, Face[].class);
 
         ListView myListView = findViewById(R.id.listView);
 
-        byte[] byteArray = getIntent().getByteArrayExtra("image");
+        byteArray = getIntent().getByteArrayExtra("image");
+
+
+
+
         Bitmap orig = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         if (faces == null) {
             if (data == null) {

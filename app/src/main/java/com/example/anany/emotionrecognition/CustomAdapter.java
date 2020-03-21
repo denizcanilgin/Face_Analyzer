@@ -72,9 +72,38 @@ public class CustomAdapter extends BaseAdapter {
 
         age.setText("Age: " + faces[position].faceAttributes.age);
         gender.setText("Gender: " + faces[position].faceAttributes.gender);
-        facialhair.setText(String.format("Facial Hair(m,b,s): %f %f \n%f", faces[position].faceAttributes.facialHair.moustache,
-                faces[position].faceAttributes.facialHair.beard,
-                faces[position].faceAttributes.facialHair.sideburns));
+
+        if(faces[position].faceAttributes.gender.equals("male")){
+
+            String m = FHAnalyze(faces[position].faceAttributes.facialHair.moustache);
+            String b =  FHAnalyze(faces[position].faceAttributes.facialHair.beard);
+            String s =  FHAnalyze(faces[position].faceAttributes.facialHair.sideburns);
+
+            String fh = "moustache: " + m + "\n" + "beard: " + b + "\n" + "sideburns: " + s;
+
+            facialhair.setText(fh);
+
+
+        }else {
+            String mpEye = "";
+            String mpLip = "";
+            if(faces[position].faceAttributes.makeup.eyeMakeup)
+                mpEye = " yes";
+            else
+                mpEye = " no";
+
+            if(faces[position].faceAttributes.makeup.lipMakeup)
+                mpLip = " yes";
+            else
+                mpLip = " no";
+
+
+
+            facialhair.setText("eye makeup: " + mpEye + "\n" + "lip makeup: " + mpLip );
+
+
+        }
+
 
         headpose.setText(String.format("Head Pose: %f %f %f", faces[position].faceAttributes.headPose.pitch,
                 faces[position].faceAttributes.headPose.yaw,
@@ -109,6 +138,19 @@ public class CustomAdapter extends BaseAdapter {
         imageView.setImageBitmap(bitmap);
         imageView.setImageBitmap(bitmap);
         return view;
+    }
+
+    public String FHAnalyze(Double value) {
+        String result = "";
+
+        if ((value < 0.1)) result = "very light";
+        if ((value >= 0.1) && (value < 0.4)) result = "light";
+        if ((value >= 0.4) && (value < 0.5)) result = "normal";
+        if ((value >= 0.5) && (value < 0.8)) result = "heavy";
+        if ((value >= 0.8) && (value <= 1.0)) result = "very heavy";
+
+
+        return result;
     }
 
 }

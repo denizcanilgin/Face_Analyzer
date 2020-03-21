@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Emotion Recognition</string>
+    <string name="take_photo">take a photo</string>
+    <string name="title">how old am i looking</string>
+    <string name="proccess">analyze now</string>
+    <string name="pick_image">pick an image</string>
+    <string name="result_title">hmm.. i see you</string>
+    <string name="age">Age:</string>
 </resources>
