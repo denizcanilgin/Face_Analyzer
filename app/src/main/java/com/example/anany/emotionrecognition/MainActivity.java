@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                         FaceServiceClient.FaceAttributeType.FacialHair,
                         FaceServiceClient.FaceAttributeType.Makeup
 
+
                 };
 
                 try {
@@ -267,6 +268,8 @@ public class MainActivity extends AppCompatActivity {
         //For Image
 
     }
+
+
 
     private void photoTaken() {
 
