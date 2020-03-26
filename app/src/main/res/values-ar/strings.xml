@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">التعرف على الانفعالات</string>
+    <string name="age">عمر:</string>
+    <string name="anger">الغضب</string>
+    <string name="array_null">صفيف الوجه فارغ</string>
+    <string name="beard">اللحية:</string>
+    <string name="disgust">"الاشمئزاز "</string>
+    <string name="eye_makeup">مكياج العين:</string>
+    <string name="fear">الخوف</string>
+    <string name="happiness">السعادة</string>
+    <string name="heavy">ثقيل</string>
+    <string name="light">ضوء</string>
+    <string name="lip_makeup">مكياج الشفاه:</string>
+    <string name="moustache">شوارب:</string>
+    <string name="neutral">محايد</string>
+    <string name="no">لا</string>
+    <string name="no_face_detected">لم يتم اكتشاف وجوه. يرجى استعادة الصورة.</string>
+    <string name="normal">عادي</string>
+    <string name="pick_image">اختر صورة</string>
+    <string name="please_take_pic">يرجى التقاط صورة.</string>
+    <string name="proccess">حلل الآن</string>
+    <string name="sadness">الحزن</string>
+    <string name="sideburns">السوالف:</string>
+    <string name="surprise">مفاجأة</string>
+    <string name="take_photo">التقاط صورة</string>
+    <string name="very_heavy">ثقيل جدا</string>
+    <string name="very_light">خفيف جدا</string>
+    <string name="yes">نعم</string>
+</resources>

@@ -38,7 +38,7 @@ public class ResultActivity extends AppCompatActivity {
         Bitmap orig = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         if (faces == null) {
             if (data == null) {
-                Toast.makeText(getApplicationContext(), "Face array is null", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.array_null), Toast.LENGTH_LONG).show();
             } else {
 
             }

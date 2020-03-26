@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Duygu Tanıma</string>
+    <string name="age">Yaş:</string>
+    <string name="anger">Öfke</string>
+    <string name="array_null">Yüz dizisi boş</string>
+    <string name="beard">Sakal:</string>
+    <string name="disgust">Nefret</string>
+    <string name="eye_makeup">Göz makyajı:</string>
+    <string name="fear">Korku</string>
+    <string name="happiness">Mutluluk</string>
+    <string name="heavy">Aşırı</string>
+    <string name="light">Işık</string>
+    <string name="lip_makeup">Dudak makyajı:</string>
+    <string name="moustache">Bıyık:</string>
+    <string name="neutral">Doğal</string>
+    <string name="no">Hayır</string>
+    <string name="no_face_detected">Hiçbir yüz algılanmadı. Lütfen resmi tekrar çekin.</string>
+    <string name="normal">Normal</string>
+    <string name="pick_image">Bir resim seçin</string>
+    <string name="please_take_pic">Lütfen bir resim çekin.</string>
+    <string name="proccess">Şimdi analiz et</string>
+    <string name="sadness">Üzüntü</string>
+    <string name="sideburns">favoriler:</string>
+    <string name="surprise">Şaşkınlık</string>
+    <string name="take_photo">Fotoğraf çek</string>
+    <string name="very_heavy">Çok ağır</string>
+    <string name="very_light">Çok hafif</string>
+    <string name="yes">Evet</string>
+</resources>

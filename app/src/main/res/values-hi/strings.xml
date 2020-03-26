@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">भावना मान्यता</string>
+    <string name="age">उम्र:</string>
+    <string name="anger">गुस्सा</string>
+    <string name="array_null">चेहरा सरणी शून्य है</string>
+    <string name="beard">दाढ़ी:</string>
+    <string name="disgust">घृणा</string>
+    <string name="eye_makeup">आँख मेकअप:</string>
+    <string name="fear">डर</string>
+    <string name="happiness">ख़ुशी</string>
+    <string name="heavy">भारी</string>
+    <string name="light">रोशनी</string>
+    <string name="lip_makeup">होंठ श्रृंगार:</string>
+    <string name="moustache">मूंछ:</string>
+    <string name="neutral">तटस्थ</string>
+    <string name="no">नहीं</string>
+    <string name="no_face_detected">किसी चेहरे का पता नहीं चला। कृपया तस्वीर को फिर से लाइक करें।</string>
+    <string name="normal">साधारण</string>
+    <string name="pick_image">एक छवि चुनें</string>
+    <string name="please_take_pic">कृपया एक तस्वीर लें।</string>
+    <string name="proccess">अब विश्लेषण करें</string>
+    <string name="sadness">उदासी</string>
+    <string name="sideburns">कलम:</string>
+    <string name="surprise">आश्चर्य</string>
+    <string name="take_photo">एक तस्वीर लें</string>
+    <string name="very_heavy">बहुत भारी</string>
+    <string name="very_light">बहुत हल्का</string>
+    <string name="yes">हाँ</string>
+</resources>

@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 } else {
-                    makeToast("Please take a picture.");
+                    makeToast(getString(R.string.please_take_pic));
                 }
             }
         });
@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void noFaceDetected() {
-        makeToast("No faces detected. Please retake the picture.");
+        makeToast(getString(R.string.no_face_detected));
 
         //For Photo
         ly_beforePick.setVisibility(View.VISIBLE);

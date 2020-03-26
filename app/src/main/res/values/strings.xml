@@ -1,9 +1,31 @@
 <resources>
     <string name="app_name">Emotion Recognition</string>
-    <string name="take_photo">take a photo</string>
-    <string name="title">how old am i looking</string>
-    <string name="proccess">analyze now</string>
-    <string name="pick_image">pick an image</string>
-    <string name="result_title">hmm.. i see you</string>
+    <string name="take_photo">Take a photo</string>
+    <string name="title" translatable="false">how old am i looking</string>
+    <string name="proccess">Analyze now</string>
+    <string name="pick_image">Pick an image</string>
+    <string name="result_title" translatable="false">hmm.. i see you</string>
     <string name="age">Age:</string>
+    <string name="please_take_pic">Please take a picture.</string>
+    <string name="no_face_detected">No faces detected. Please retake the picture.</string>
+    <string name="array_null">Face array is null</string>
+    <string name="eye_makeup">Eye makeup:</string>
+    <string name="lip_makeup">Lip makeup:</string>
+    <string name="happiness">Happiness</string>
+    <string name="anger">Anger</string>
+    <string name="disgust">Disgust</string>
+    <string name="sadness">Sadness</string>
+    <string name="neutral">Neutral</string>
+    <string name="surprise">Surprise</string>
+    <string name="fear">Fear</string>
+    <string name="very_light">Very light</string>
+    <string name="light">Light</string>
+    <string name="normal">Normal</string>
+    <string name="heavy">Heavy</string>
+    <string name="very_heavy">Very heavy</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="moustache">Moustache:</string>
+    <string name="beard">Beard:</string>
+    <string name="sideburns">Sideburns:</string>
 </resources>

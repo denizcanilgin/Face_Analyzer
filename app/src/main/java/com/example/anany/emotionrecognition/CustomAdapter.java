@@ -79,7 +79,7 @@ public class CustomAdapter extends BaseAdapter {
             String b =  FHAnalyze(faces[position].faceAttributes.facialHair.beard);
             String s =  FHAnalyze(faces[position].faceAttributes.facialHair.sideburns);
 
-            String fh = "moustache: " + m + "\n" + "beard: " + b + "\n" + "sideburns: " + s;
+            String fh = context.getString(R.string.moustache) + m + "\n" + context.getString(R.string.beard) + b + "\n" + context.getString(R.string.sideburns) + s;
 
             facialhair.setText(fh);
 
@@ -88,18 +88,18 @@ public class CustomAdapter extends BaseAdapter {
             String mpEye = "";
             String mpLip = "";
             if(faces[position].faceAttributes.makeup.eyeMakeup)
-                mpEye = " yes";
+                mpEye = context.getString(R.string.yes);
             else
-                mpEye = " no";
+                mpEye = context.getString(R.string.no);
 
             if(faces[position].faceAttributes.makeup.lipMakeup)
-                mpLip = " yes";
+                mpLip = context.getString(R.string.yes);
             else
-                mpLip = " no";
+                mpLip = context.getString(R.string.no);
 
 
 
-            facialhair.setText("eye makeup: " + mpEye + "\n" + "lip makeup: " + mpLip );
+            facialhair.setText(context.getString(R.string.eye_makeup) + mpEye + "\n" + context.getString(R.string.lip_makeup) + mpLip );
 
 
         }
@@ -111,13 +111,13 @@ public class CustomAdapter extends BaseAdapter {
 
 
         TreeMap<Double, String> treeMap = new TreeMap<>();
-        treeMap.put(faces[position].faceAttributes.emotion.happiness, "Happiness");
-        treeMap.put(faces[position].faceAttributes.emotion.anger, "Anger");
-        treeMap.put(faces[position].faceAttributes.emotion.disgust, "Disgust");
-        treeMap.put(faces[position].faceAttributes.emotion.sadness, "Sadness");
-        treeMap.put(faces[position].faceAttributes.emotion.neutral, "Neutral");
-        treeMap.put(faces[position].faceAttributes.emotion.surprise, "Surprise");
-        treeMap.put(faces[position].faceAttributes.emotion.fear, "Fear");
+        treeMap.put(faces[position].faceAttributes.emotion.happiness, context.getString(R.string.happiness));
+        treeMap.put(faces[position].faceAttributes.emotion.anger, context.getString(R.string.anger));
+        treeMap.put(faces[position].faceAttributes.emotion.disgust, context.getString(R.string.disgust));
+        treeMap.put(faces[position].faceAttributes.emotion.sadness, context.getString(R.string.sadness));
+        treeMap.put(faces[position].faceAttributes.emotion.neutral, context.getString(R.string.neutral));
+        treeMap.put(faces[position].faceAttributes.emotion.surprise, context.getString(R.string.surprise));
+        treeMap.put(faces[position].faceAttributes.emotion.fear, context.getString(R.string.fear));
 
         ArrayList<Double> arrayList = new ArrayList<>();
         TreeMap<Integer, String> rank = new TreeMap<>();
@@ -143,11 +143,11 @@ public class CustomAdapter extends BaseAdapter {
     public String FHAnalyze(Double value) {
         String result = "";
 
-        if ((value < 0.1)) result = "very light";
-        if ((value >= 0.1) && (value < 0.4)) result = "light";
-        if ((value >= 0.4) && (value < 0.5)) result = "normal";
-        if ((value >= 0.5) && (value < 0.8)) result = "heavy";
-        if ((value >= 0.8) && (value <= 1.0)) result = "very heavy";
+        if ((value < 0.1)) result = context.getString(R.string.very_light);
+        if ((value >= 0.1) && (value < 0.4)) result = context.getString(R.string.light);
+        if ((value >= 0.4) && (value < 0.5)) result = context.getString(R.string.normal);
+        if ((value >= 0.5) && (value < 0.8)) result = context.getString(R.string.heavy);
+        if ((value >= 0.8) && (value <= 1.0)) result = context.getString(R.string.very_heavy);
 
 
         return result;
