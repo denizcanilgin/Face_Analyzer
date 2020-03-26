@@ -2,6 +2,7 @@ package com.app.jude.faceAge;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -114,6 +115,14 @@ public class CustomAdapter extends BaseAdapter {
         treeMap.put(faces[position].faceAttributes.emotion.surprise, context.getString(R.string.surprise));
         treeMap.put(faces[position].faceAttributes.emotion.fear, context.getString(R.string.fear));
 
+        Log.i("Happiness", "" + faces[position].faceAttributes.emotion.happiness);
+        Log.i("Anger", "" + faces[position].faceAttributes.emotion.anger);
+        Log.i("Disgust", "" + faces[position].faceAttributes.emotion.disgust);
+        Log.i("Sadness", "" + faces[position].faceAttributes.emotion.sadness);
+        Log.i("Neutral", "" + faces[position].faceAttributes.emotion.neutral);
+        Log.i("Surprise", "" + faces[position].faceAttributes.emotion.surprise);
+        Log.i("Fear", "" + faces[position].faceAttributes.emotion.fear);
+
         ArrayList<Double> arrayList = new ArrayList<>();
         TreeMap<Integer, String> rank = new TreeMap<>();
 
@@ -126,7 +135,21 @@ public class CustomAdapter extends BaseAdapter {
             arrayList.add(value);
         }
 
-        smile.setText(rank.get(rank.size() - 1) + ": " + 100 * arrayList.get(rank.size() - 1) + "% " + rank.get(rank.size() - 2) + ": " + 100 * arrayList.get(rank.size() - 2) + "%");
+
+        EmojiUniCodes emojiUniCodes = new EmojiUniCodes();
+
+        String emoji1 = pickEmoji(rank.get(rank.size() - 1));
+        String emoji2 = pickEmoji(rank.get(rank.size() - 2));
+
+        int value1 = (int) (100 * arrayList.get(rank.size() - 1));
+        int value2 = (int) (100 * arrayList.get(rank.size() - 2));
+
+        pickEmoji(rank.get(rank.size() - 1));
+        smile.setText(emoji1 + rank.get(rank.size() - 1) + ": " + value1 + "% "  + emoji2 + rank.get(rank.size() - 2) + ": " + value2 + "%");
+        Log.i("current_emotion1","" + rank.get(rank.size() - 1));
+        Log.i("current_emotion2","" + rank.get(rank.size() - 2));
+
+
         FaceRectangle faceRectangle = faces[position].faceRectangle;
         Bitmap bitmap = Bitmap.createBitmap(orig, faceRectangle.left, faceRectangle.top, faceRectangle.width, faceRectangle.height);
 
@@ -135,6 +158,7 @@ public class CustomAdapter extends BaseAdapter {
         return view;
     }
 
+    //Facial Hair Analyze Method
     public String FHAnalyze(Double value) {
         String result = "";
 
@@ -143,9 +167,30 @@ public class CustomAdapter extends BaseAdapter {
         if ((value >= 0.4) && (value < 0.5)) result = context.getString(R.string.normal);
         if ((value >= 0.5) && (value < 0.8)) result = context.getString(R.string.heavy);
         if ((value >= 0.8) && (value <= 1.0)) result = context.getString(R.string.very_heavy);
-
-
         return result;
+    }
+
+    public String pickEmoji(String state){
+        String emoji = "";
+        EmojiUniCodes emojiUniCodes = new EmojiUniCodes();
+
+         if(state.equals(context.getString(R.string.happiness)))
+            emoji = emojiUniCodes.getEmojiByUnicode(emojiUniCodes.toohappy);
+         if(state.equals(context.getString(R.string.sadness)))
+            emoji = emojiUniCodes.getEmojiByUnicode(emojiUniCodes.sad);
+         if(state.equals(context.getString(R.string.neutral)))
+             emoji = emojiUniCodes.getEmojiByUnicode(emojiUniCodes.neutral);
+         if(state.equals(context.getString(R.string.fear)))
+             emoji = emojiUniCodes.getEmojiByUnicode(emojiUniCodes.fear);
+         if(state.equals(context.getString(R.string.surprise)))
+             emoji = emojiUniCodes.getEmojiByUnicode(emojiUniCodes.surprised);
+         if(state.equals(context.getString(R.string.disgust)))
+             emoji = emojiUniCodes.getEmojiByUnicode(emojiUniCodes.disgust);
+         if(state.equals(context.getString(R.string.anger)))
+             emoji = emojiUniCodes.getEmojiByUnicode(emojiUniCodes.angry);
+
+
+        return emoji;
     }
 
 }

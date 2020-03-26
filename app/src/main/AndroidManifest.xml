@@ -8,12 +8,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
-        android:icon="@drawable/smiling"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/smiling"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.app.jude.faceAge.SplashActivty">
+        <activity android:name="com.app.jude.faceAge.SplashActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.app.jude.faceAge.MainActivity">
+    <activity android:name=".MainActivity"/>
 
-        </activity>
 
         <activity android:name="com.app.jude.faceAge.ResultActivity" />
         <uses-library
