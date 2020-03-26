@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Emotion Recognition</string>
+    <string name="app_name">FaceAge</string>
     <string name="take_photo">Take a photo</string>
     <string name="title" translatable="false">how old am i looking</string>
     <string name="proccess">Analyze now</string>

@@ -1,4 +1,4 @@
-package com.example.anany.emotionrecognition;
+package com.app.jude.faceAge;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.anany.emotionrecognition", appContext.getPackageName());
+        assertEquals("com.app.jude.faceAge", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.anany.emotionrecognition;
+package com.app.jude.faceAge;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,8 +9,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.contract.Face;
-
-import java.io.ByteArrayInputStream;
 
 public class ResultActivity extends AppCompatActivity {
 
