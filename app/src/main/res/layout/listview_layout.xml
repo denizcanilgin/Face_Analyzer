@@ -79,11 +79,26 @@
                     android:paddingTop="15dp">
 
                     <TextView
+                        android:id="@+id/textGlasses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/bg_button_rounded_pushed"
+                        android:fontFamily="@font/cdbold"
+                        android:padding="10dp"
+                        android:text=" Glasses"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10dp" />
+
+                    <TextView
                         android:id="@+id/textGender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/bg_button_rounded_pushed"
                         android:fontFamily="@font/cdbold"
@@ -104,7 +119,7 @@
                         android:padding="10dp"
                         android:text=" Facial Hair: Heavy "
                         android:textAlignment="center"
-                        android:textColor="@color/colorWhite"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="10dp" />
 
 
@@ -124,6 +139,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <LinearLayout
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_width="15dp"
+                    android:layout_height="match_parent"/>
+
                 <TextView
                     android:id="@+id/textSmile"
                     android:layout_width="match_parent"
@@ -131,12 +151,11 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/bg_button_rounded_pushed"
                     android:fontFamily="@font/cdbold"
                     android:padding="10dp"
                     android:text=" "
                     android:textAlignment="center"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorPrimaryDark" />
 
 
             </LinearLayout>

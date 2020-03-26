@@ -54,10 +54,11 @@ public class CustomAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.listview_layout, null);
         }
 
-        TextView age, gender, facialhair, headpose, smile;
+        TextView age, gender, facialhair, headpose, smile, glasses;
 
         ImageView imageView;
 
+        glasses = view.findViewById(R.id.textGlasses);
         age = view.findViewById(R.id.textAge);
         gender = view.findViewById(R.id.textGender);
         facialhair = view.findViewById(R.id.textFacialHair);
@@ -68,6 +69,7 @@ public class CustomAdapter extends BaseAdapter {
 
         age.setText("Age: " + faces[position].faceAttributes.age);
         gender.setText("Gender: " + faces[position].faceAttributes.gender);
+        glasses.setText("" + faces[position].faceAttributes.glasses );
 
         if(faces[position].faceAttributes.gender.equals("male")){
 

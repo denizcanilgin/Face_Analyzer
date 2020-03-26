@@ -181,7 +181,9 @@ public class MainActivity extends AppCompatActivity {
                         FaceServiceClient.FaceAttributeType.Gender,
                         FaceServiceClient.FaceAttributeType.Emotion,
                         FaceServiceClient.FaceAttributeType.FacialHair,
-                        FaceServiceClient.FaceAttributeType.Makeup
+                        FaceServiceClient.FaceAttributeType.Makeup,
+                        FaceServiceClient.FaceAttributeType.Glasses,
+
 
 
                 };

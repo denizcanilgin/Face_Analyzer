@@ -52,7 +52,6 @@ public class SplashActivity extends AppCompatActivity {
 
         AlphaAnimation animation1 = new AlphaAnimation(0.2f, 1.0f);
         animation1.setDuration(2000);
-        //animation1.setStartOffset(5000);
         animation1.setFillAfter(true);
         logo.startAnimation(animation1);
     }
