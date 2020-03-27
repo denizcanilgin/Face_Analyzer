@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.app.jude.faceAge.Activty.MainActivity;
 import com.app.jude.faceAge.R;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
@@ -23,7 +25,7 @@ public class AudienceNetworkAds {
 
     public static AdView adView;
     public static InterstitialAd interstitialAd;
-    public static LinearLayout adViewContainer;
+    public static LinearLayout adContainer;
     public static Context cnt;
 
 
@@ -32,13 +34,13 @@ public class AudienceNetworkAds {
     public static void facebookLoadBanner(final Context context, final View view)
     {
 
-        adViewContainer = (LinearLayout) view.findViewById(R.id.adViewContainer);
+         adContainer = (LinearLayout) view.findViewById(R.id.adViewContainer);
 
-        adView = new AdView(context, context.getResources().getString(R.string.facebook_banner)
-                , AdSize.BANNER_HEIGHT_50);
-        adViewContainer.addView(adView);
+        adView = new AdView(context, String.valueOf(R.string.facebook_banner), AdSize.BANNER_HEIGHT_50);
         adView.loadAd();
-        cnt=context;
+        adContainer.addView(adView);
+
+
 
 
 
@@ -46,7 +48,6 @@ public class AudienceNetworkAds {
             @Override
             public void onError(Ad ad, AdError adError) {
 
-                Log.i("FacebookAD","info: "+ adError);
                Admob.createLoadBanner(context, view);
 
 
@@ -133,7 +134,7 @@ public class AudienceNetworkAds {
 
         AdSettings.setIntegrationErrorMode(AdSettings.IntegrationErrorMode.INTEGRATION_ERROR_CALLBACK_MODE);
 
-        AdSettings.addTestDevice("6f0f17dd-b085-4a10-a9e3-b1103c6752a9");
+       // AdSettings.addTestDevice("6f0f17dd-b085-4a10-a9e3-b1103c6752a9");
 
     }
 

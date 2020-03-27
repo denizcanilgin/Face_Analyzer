@@ -7,12 +7,9 @@
     <string name="admob_app_id" translatable="false">ca-app-pub-2976879956297104~7245661247</string>
 
 
-
-
-
     <string name="facebook_banner" translatable="false">208757320397249_209134683692846</string>
     <string name="facebook_Intersitial" translatable="false">208757320397249_208758977063750</string>
-    <string name="facebook_app_id" translatable="false">322712258254362</string>
+    <string name="facebook_app_id" translatable="false">526424688014428</string>
 
 
     <string name="take_photo">Take a photo</string>
