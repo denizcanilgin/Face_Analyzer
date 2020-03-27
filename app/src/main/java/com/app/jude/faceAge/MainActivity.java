@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     Button process, takePicture, bt_pickImageFromGallery;
     ImageView imageView, hidden;
 
+
     LinearLayout ly_beforePick, ly_beforePickGallery;
     RelativeLayout rl_loading;
     ImageView iv_settings, loadingLogo;
