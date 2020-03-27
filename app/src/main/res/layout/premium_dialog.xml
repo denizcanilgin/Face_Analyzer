@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:gravity="center"
+        android:elevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:background="@android:color/transparent"
+        android:src="@drawable/crown"
+        android:layout_width="140dp"
+        android:elevation="25dp"
+        android:layout_height="52dp"/>
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.CardView
+        app:cardCornerRadius="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="top"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:text="get premium now!"
+                android:background="@color/colorPrimaryDark"
+                android:padding="15dp"
+                android:fontFamily="@font/cdbold"
+                android:textColor="@color/colorWhite"
+                android:textSize="16dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/amcuk"
+                        android:layout_marginStart="25dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:text="no ads."
+                        android:padding="15dp"
+                        android:fontFamily="@font/cdbold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/yarah"
+                        android:layout_marginStart="25dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:text="exposure level."
+                        android:padding="15dp"
+                        android:fontFamily="@font/cdbold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/jupiter"
+                        android:layout_marginStart="25dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:text="hair analyze."
+                        android:padding="15dp"
+                        android:fontFamily="@font/cdbold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/rocket"
+                        android:layout_marginStart="25dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:text="import from gallery."
+                        android:padding="15dp"
+                        android:fontFamily="@font/cdbold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/bt_getPremium"
+                        android:background="@drawable/button_state_premium"
+                        android:text="get now"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/cdbold"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+</RelativeLayout>

@@ -1,12 +1,18 @@
 package com.app.jude.faceAge;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,11 +30,21 @@ public class CustomAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private Bitmap orig;
 
+    ImageView deneme;
+    Button bt_share;
+    View converView;
+
+    ArrayList<CardView> cardViewArrayList;
+    ArrayList<Button> buttonArrayList;
+
+
     public CustomAdapter(Face[] faces, Context context, Bitmap orig) {
         this.faces = faces;
         this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.orig = orig;
+        cardViewArrayList = new ArrayList<>();
+        buttonArrayList = new ArrayList<>();
     }
 
 
@@ -48,8 +64,11 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
         View view = convertView;
+        this.converView = converView;
+
+
         if (convertView == null) {
             view = inflater.inflate(R.layout.listview_layout, null);
         }
@@ -57,6 +76,27 @@ public class CustomAdapter extends BaseAdapter {
         TextView age, gender, facialhair, headpose, smile, glasses;
 
         ImageView imageView;
+
+
+
+
+        deneme = view.findViewById(R.id.deneme);
+        bt_share = view.findViewById(R.id.bt_share);
+        CardView card_view = view.findViewById(R.id.card_view_list);
+        cardViewArrayList.add(card_view);
+        buttonArrayList.add(bt_share);
+        bt_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                buttonArrayList.get(position).setText("FaceAge - how old do i look like");
+                shareIntent(screenShot(cardViewArrayList.get(position)));
+                buttonArrayList.get(position).setText("share");
+
+
+            }
+        });
+
 
         glasses = view.findViewById(R.id.textGlassess);
         age = view.findViewById(R.id.textAge);
@@ -193,6 +233,27 @@ public class CustomAdapter extends BaseAdapter {
 
 
         return emoji;
+    }
+
+    public Bitmap screenShot(View view) {
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(),
+                view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
+    }
+
+
+    private void shareIntent(Bitmap bitmap){
+
+        String bitmapPath = MediaStore.Images.Media.insertImage(context.getContentResolver(), bitmap,"title", null);
+        Uri bitmapUri = Uri.parse(bitmapPath);
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("image/png");
+        intent.putExtra(Intent.EXTRA_STREAM, bitmapUri);
+        context.startActivity(Intent.createChooser(intent, "Share"));
+
     }
 
 }

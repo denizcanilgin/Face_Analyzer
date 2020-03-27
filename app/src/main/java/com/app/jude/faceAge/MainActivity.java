@@ -119,7 +119,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                makeToast("Available in premium soon");
+
+                showPremiumDialog();
 
 //                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 //                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
@@ -398,6 +399,29 @@ public class MainActivity extends AppCompatActivity {
 
 
         settings_dialog.show();
+
+    }
+
+    private void showPremiumDialog(){
+
+        final Dialog premium_dialog = new Dialog(this);
+        premium_dialog.setCancelable(true);
+        premium_dialog.setContentView(R.layout.premium_dialog);
+        premium_dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        premium_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        Button bt_getPremium = premium_dialog.findViewById(R.id.bt_getPremium);
+        bt_getPremium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeToast("premium is available soon");
+                premium_dialog.dismiss();
+            }
+        });
+
+
+
+        premium_dialog.show();
 
     }
 
