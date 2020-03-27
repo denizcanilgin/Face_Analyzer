@@ -1,6 +1,7 @@
 package com.app.jude.faceAge;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
@@ -21,6 +22,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView, hidden;
 
     LinearLayout ly_beforePick, ly_beforePickGallery;
-    ImageView iv_settings;
+    RelativeLayout rl_loading;
+    ImageView iv_settings, loadingLogo;
 
     CheckView checkViewTakePhoto, checkViewPickImage;
 
@@ -63,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rl_loading = findViewById(R.id.ly_loading);
+        loadingLogo = findViewById(R.id.loadingLogo);
+
 
         //IMPORTANT!!------------------------------------------------------------------------------
         //Replace the below tags <> with your own endpoint and API Subscription Key.
@@ -103,13 +110,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
-                } else {
-                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                makeToast("Available in premium soon");
 
-                    startActivityForResult(intent, 101);
-                }
+//                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+//                } else {
+//                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//
+//                    startActivityForResult(intent, 101);
+//                }
             }
 
 
@@ -137,6 +146,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        dismissLoading();
+
+    }
+
+    private void dismissLoading(){
+
+        loadingLogo.setVisibility(View.GONE);
+        rl_loading.setVisibility(View.GONE);
+
+    }
+
+    private void showLoading(){
+
+        loadingLogo.setVisibility(View.VISIBLE);
+        rl_loading.setVisibility(View.VISIBLE);
+        rotate_Clockwise(loadingLogo);
+
+
+    }
+
+    public void rotate_Clockwise(View view) {
+        ObjectAnimator rotate = ObjectAnimator.ofFloat(view, "rotation", 360f ,0f);
+        rotate.setRepeatCount(10000);
+        rotate.setDuration(1000);
+        rotate.start();
     }
 
     @Override
@@ -230,17 +266,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected void onPreExecute() {
-                pd.show();
+                showLoading();
             }
 
             @Override
             protected void onProgressUpdate(String... values) {
-                pd.setMessage(values[0]);
+                showLoading();
             }
 
             @Override
             protected void onPostExecute(Face[] faces) {
-                pd.dismiss();
+                dismissLoading();
                 Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
                 Gson gson = new Gson();
                 String data = gson.toJson(faces);
@@ -318,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
         tv_aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeToast("About Clicked");
+//                makeToast("About Clicked");
 
                 Intent i = new Intent(MainActivity.this,AboutActivity.class);
                 startActivity(i);
@@ -331,7 +367,7 @@ public class MainActivity extends AppCompatActivity {
         tv_rateUsOnGooglePlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeToast("Rate Us Clicked");
+//                makeToast("Rate Us Clicked");
 
                 Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
                 Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
