@@ -58,7 +58,7 @@ public class CustomAdapter extends BaseAdapter {
 
         ImageView imageView;
 
-        glasses = view.findViewById(R.id.textGlasses);
+        glasses = view.findViewById(R.id.textGlassess);
         age = view.findViewById(R.id.textAge);
         gender = view.findViewById(R.id.textGender);
         facialhair = view.findViewById(R.id.textFacialHair);

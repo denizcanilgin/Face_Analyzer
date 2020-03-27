@@ -37,14 +37,54 @@
             android:src="@drawable/bg" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/list"
 
-    <ListView
-        android:id = "@+id/listView"
-        android:paddingTop="75dp"
-        android:divider="#00000000"
-        android:dividerHeight="0dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#00000000"
+
+            android:dividerHeight="0dp"
+            android:paddingTop="75dp">
+
+        </ListView>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/list"
+
+
+        >
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:elevation="10dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:adSize="SMART_BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+        </com.google.android.gms.ads.AdView>
+
+    </LinearLayout>
+
 
 
 </RelativeLayout>

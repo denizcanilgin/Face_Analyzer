@@ -26,6 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     CheckView checkViewTakePhoto, checkViewPickImage;
 
+    public View view;
     private FaceServiceClient faceServiceClient;
     Bitmap mBitmap;
     Boolean ready = false;
@@ -70,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
         rl_loading = findViewById(R.id.ly_loading);
         loadingLogo = findViewById(R.id.loadingLogo);
 
+        MobileAds.initialize(this, "ca-app-pub-9358117223441138~9090385139");
+        view=getWindow().getDecorView().getRootView();
+
+         Admob.createLoadBanner(getApplicationContext(), view);
+        //Admob.createLoadInterstitial(getApplicationContext(),null);
+
 
         //IMPORTANT!!------------------------------------------------------------------------------
         //Replace the below tags <> with your own endpoint and API Subscription Key.
@@ -80,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         checkViewTakePhoto = findViewById(R.id.checkTakePhoto);
         checkViewPickImage = findViewById(R.id.checkPickImage);
         bt_pickImageFromGallery = findViewById(R.id.bt_pickImageFromGallery);
-        iv_settings = findViewById(R.id.iv_settings);
+        iv_settings = findViewById(R.id.iv_sett);
 
         takePicture = findViewById(R.id.takePic);
         imageView = findViewById(R.id.imageView);
@@ -138,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (ready) {
 
-                        detectandFrame(mBitmap);
+                    detectandFrame(mBitmap);
 
 
                 } else {
