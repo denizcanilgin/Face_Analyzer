@@ -133,11 +133,11 @@ public class Admob {
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 // TODO Auto-generated method stub
-
+                AudienceNetworkAds.facebookLoadBanner(context,view);
 
                 super.onAdFailedToLoad(errorCode);
                 //Toast.makeText(context, "admob hata", Toast.LENGTH_SHORT).show();
-                AudienceNetworkAds.facebookLoadBanner(context,view);
+
             }
 
         });

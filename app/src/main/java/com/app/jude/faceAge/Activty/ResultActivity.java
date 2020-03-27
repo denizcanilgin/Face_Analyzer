@@ -1,4 +1,4 @@
-package com.app.jude.faceAge;
+package com.app.jude.faceAge.Activty;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.app.jude.faceAge.Ads.Admob;
+import com.app.jude.faceAge.Ads.AudienceNetworkAds;
+import com.app.jude.faceAge.CustomAdapter;
+import com.app.jude.faceAge.R;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.contract.Face;
@@ -24,6 +28,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
          data = getIntent().getStringExtra("list_faces");
+        AudienceNetworkAds.facebookInterstitialAd(this);
 
 
         Gson gson = new Gson();
@@ -32,12 +37,6 @@ public class ResultActivity extends AppCompatActivity {
         ListView myListView = findViewById(R.id.listView);
 
         byteArray = getIntent().getByteArrayExtra("image");
-
-        MobileAds.initialize(this, "ca-app-pub-9358117223441138~9090385139");
-        view=getWindow().getDecorView().getRootView();
-
-        Admob.createLoadBanner(getApplicationContext(), view);
-        Admob.createLoadInterstitial(getApplicationContext(),null);
 
 
         Bitmap orig = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);

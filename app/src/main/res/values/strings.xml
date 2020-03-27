@@ -8,12 +8,10 @@
 
 
 
-    <!--Facebook music app    -->
 
-    <string name="facebook_banner" translatable="false">311257849559302_311259216225832</string>
 
+    <string name="facebook_banner" translatable="false">208757320397249_209134683692846</string>
     <string name="facebook_Intersitial" translatable="false">208757320397249_208758977063750</string>
-
     <string name="facebook_app_id" translatable="false">322712258254362</string>
 
 
