@@ -26,7 +26,17 @@ public class SplashActivity extends AppCompatActivity {
         animateViews();
 
 
+        startMainActivity();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startMainActivity();
+    }
+
+    private void startMainActivity(){
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -37,7 +47,6 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         }, 2000);
-
 
     }
 

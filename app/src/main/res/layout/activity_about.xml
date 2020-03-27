@@ -1,15 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:padding="25dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:padding="25dp">
 
-    <TextView
-        android:id="@+id/tv_verCode"
-        android:text=" "
+    <LinearLayout
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:alpha="0.5"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_height="2dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="125dp"
+            android:src="@drawable/logo"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cdbold"
+            android:text="Version Number"
+            android:textSize="18dp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_verCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/cdbold"
+            android:gravity="center"
+            android:text=" "
+            android:textSize="18dp"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cdbold"
+            android:text="Contact"
+            android:textSize="18dp"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cd"
+            android:text=" denizcanilgin@yazilimtakimi.com \n abdurrahmantekir@yazilimtakimi.com"
+            android:textAlignment="center"
+            android:textSize="18dp"></TextView>
+
+        
+        <LinearLayout
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:alpha="0.5"
+            android:layout_marginTop="25dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
