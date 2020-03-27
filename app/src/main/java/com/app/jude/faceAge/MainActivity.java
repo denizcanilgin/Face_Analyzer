@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout ly_beforePick, ly_beforePickGallery;
     RelativeLayout rl_loading;
-    ImageView iv_settings, loadingLogo;
+    ImageView iv_settings, loadingLogo,iv_premium;
 
     CheckView checkViewTakePhoto, checkViewPickImage;
 
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         bt_pickImageFromGallery = findViewById(R.id.bt_pickImageFromGallery);
         iv_settings = findViewById(R.id.iv_sett);
 
+        iv_premium = findViewById(R.id.iv_premium);
         takePicture = findViewById(R.id.takePic);
         imageView = findViewById(R.id.imageView);
         imageView.setVisibility(View.INVISIBLE);
@@ -99,6 +100,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showDialog();
+            }
+        });
+
+        iv_premium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPremiumDialog();
             }
         });
 
