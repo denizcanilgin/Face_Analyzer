@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.app.jude.faceAge.Ads.Admob;
+
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
 import com.app.jude.faceAge.CustomAdapter;
 import com.app.jude.faceAge.R;
-import com.google.android.gms.ads.MobileAds;
+
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.contract.Face;
 
@@ -28,7 +28,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
          data = getIntent().getStringExtra("list_faces");
-        AudienceNetworkAds.facebookInterstitialAd(this);
+         AudienceNetworkAds.facebookInterstitialAd(this);
 
 
         Gson gson = new Gson();

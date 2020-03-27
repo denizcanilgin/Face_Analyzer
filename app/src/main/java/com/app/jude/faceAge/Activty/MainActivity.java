@@ -26,11 +26,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.jude.faceAge.Ads.Admob;
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
 import com.app.jude.faceAge.R;
 
-import com.google.android.gms.ads.MobileAds;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private FaceServiceClient faceServiceClient;
     Bitmap mBitmap;
     Boolean ready = false;
+    private AdView adView;
 
     @Override
     protected void onResume() {
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         view=getWindow().getDecorView().getRootView();
 
+        adView = new AdView(this, "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID", AdSize.BANNER_HEIGHT_50);
 
         //Admob.createLoadInterstitial(getApplicationContext(),null);
         AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);

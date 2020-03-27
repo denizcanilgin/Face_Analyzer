@@ -5,7 +5,6 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.app.jude.faceAge.R;
 import com.facebook.ads.Ad;
@@ -15,7 +14,6 @@ import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
 import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
-
 
 
 public class AudienceNetworkAds {

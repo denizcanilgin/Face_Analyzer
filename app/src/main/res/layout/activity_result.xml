@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="#00000000"
-
+            android:paddingBottom="100dp"
             android:dividerHeight="0dp"
             android:paddingTop="75dp">
 
@@ -59,48 +59,40 @@
     </LinearLayout>
 
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/list"
-
-
+        android:layout_height="match_parent"
+        android:gravity="bottom"
         >
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:elevation="10dp"
 
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/adViewContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:adSize="SMART_BANNER"
-            app:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
 
-        </com.google.android.gms.ads.AdView>
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:adSize="SMART_BANNER"
 
+                app:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+            </com.google.android.gms.ads.AdView>
+            <!--        ca-app-pub-2976879956297104/5158075022-->
+        </LinearLayout>
     </LinearLayout>
 
 
-    <LinearLayout
-        android:gravity="bottom"
-        android:paddingBottom="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/deneme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
-
-
-    </LinearLayout>
 
 
 </RelativeLayout>
