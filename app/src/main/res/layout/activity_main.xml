@@ -270,31 +270,39 @@
 
         </LinearLayout>
 
+
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:layout_marginEnd="0dp"
-    android:gravity="center"
-
-
-    >
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
+    android:gravity="bottom"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/adViewContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:adSize="LARGE_BANNER"
-        android:layout_marginEnd="0dp"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        android:layout_marginTop="20dp"
+        android:gravity="center"
 
-    </com.google.android.gms.ads.AdView>
+        android:background="@color/colorPrimaryDark">
+
+        <LinearLayout
+            android:gravity="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <com.google.android.gms.ads.AdView
+                     android:id="@+id/adView"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     app:adSize="LARGE_BANNER"
+
+                     app:adUnitId="ca-app-pub-3940256099942544/6300978111">
+
+              </com.google.android.gms.ads.AdView>
+            <!--        ca-app-pub-2976879956297104/5158075022-->
+
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
-
 
 
     </LinearLayout>

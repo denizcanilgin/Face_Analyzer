@@ -1,14 +1,15 @@
-package com.app.jude.faceAge;
+package com.app.jude.faceAge.Activty;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
+
+import com.app.jude.faceAge.R;
 
 public class SplashActivity extends AppCompatActivity {
 

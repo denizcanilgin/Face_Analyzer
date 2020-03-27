@@ -1,4 +1,4 @@
-package com.app.jude.faceAge;
+package com.app.jude.faceAge.Activty;
 
 import android.Manifest;
 import android.animation.ObjectAnimator;
@@ -26,13 +26,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.jude.faceAge.Ads.Admob;
+import com.app.jude.faceAge.Ads.AudienceNetworkAds;
+import com.app.jude.faceAge.R;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
 import com.microsoft.projectoxford.face.contract.Face;
-
-import org.w3c.dom.Text;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -73,11 +74,12 @@ public class MainActivity extends AppCompatActivity {
         rl_loading = findViewById(R.id.ly_loading);
         loadingLogo = findViewById(R.id.loadingLogo);
 
-        MobileAds.initialize(this, "ca-app-pub-9358117223441138~9090385139");
         view=getWindow().getDecorView().getRootView();
 
-         Admob.createLoadBanner(getApplicationContext(), view);
+
         //Admob.createLoadInterstitial(getApplicationContext(),null);
+        AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);
+
 
 
         //IMPORTANT!!------------------------------------------------------------------------------

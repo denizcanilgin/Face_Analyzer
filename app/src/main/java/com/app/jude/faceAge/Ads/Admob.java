@@ -1,22 +1,27 @@
-package com.app.jude.faceAge;
+package com.app.jude.faceAge.Ads;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
+import com.app.jude.faceAge.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-
+import com.google.android.gms.ads.MobileAds;
 
 public class Admob {
 
-    public static InterstitialAd mInterstitial; // Interstital
-    private static AdView mAdView; // banner
+    public static InterstitialAd mInterstitial;
+    private static AdView mAdView;
 
-    public static void createLoadInterstitial(final Context context, View view)
+    public static void createLoadInterstitial(final Activity context)
 
     {
+
+
+        MobileAds.initialize(context, String.valueOf(R.string.admob_app_id));
 
         mInterstitial = new InterstitialAd(context);
         mInterstitial.setAdUnitId(context.getResources().getString(
@@ -25,6 +30,7 @@ public class Admob {
             @Override
             public void onAdLoaded() {
                 // TODO Auto-generated method stub
+
                 showInterstitial();
             }
 
@@ -32,21 +38,22 @@ public class Admob {
             public void onAdFailedToLoad(int errorCode) {
                 // TODO Auto-generated method stub
 
+
                 super.onAdFailedToLoad(errorCode);
             }
 
             @Override
             public void onAdOpened() {
                 // TODO Auto-generated method stub
-                super.onAdOpened();
 
+                super.onAdOpened();
             }
 
             @Override
             public void onAdClosed() {
                 // TODO Auto-generated method stub
-                super.onAdClosed();
 
+                super.onAdClosed();
             }
 
             @Override
@@ -66,9 +73,9 @@ public class Admob {
 
     public static void loadInterstitial() {
 
-        mInterstitial.loadAd(new AdRequest.Builder().
-                addTestDevice("").//ca-app-pub-3940256099942544/1033173712
-                build());
+
+
+        mInterstitial.loadAd(new AdRequest.Builder().build());
     }
 
     public static void showInterstitial() {
@@ -77,12 +84,17 @@ public class Admob {
         }
     }
 
-    public static void createLoadBanner(final Context context, View view) {
+    public static void createLoadBanner(final Context context, final View view) {
         mAdView = (AdView) view.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().
-                addTestDevice("").//ca-app-pub-3940256099942544/6300978111
-                build();
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+
+        MobileAds.initialize(context, String.valueOf(R.string.admob_app_id));
+
+
         mAdView.loadAd(adRequest);
+
+
 
         mAdView.setAdListener(new AdListener() {
 
@@ -98,13 +110,14 @@ public class Admob {
             public void onAdClosed() {
                 // TODO Auto-generated method stub
 
-                super.onAdClosed();
 
+                super.onAdClosed();
             }
 
             @Override
             public void onAdOpened() {
                 // TODO Auto-generated method stub
+//
 
                 super.onAdOpened();
             }
@@ -123,6 +136,8 @@ public class Admob {
 
 
                 super.onAdFailedToLoad(errorCode);
+                //Toast.makeText(context, "admob hata", Toast.LENGTH_SHORT).show();
+                AudienceNetworkAds.facebookLoadBanner(context,view);
             }
 
         });

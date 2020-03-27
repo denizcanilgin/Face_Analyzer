@@ -1,4 +1,4 @@
-package com.app.jude.faceAge;
+package com.app.jude.faceAge.Activty;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import com.app.jude.faceAge.R;
 
 
 public class AboutActivity extends AppCompatActivity {

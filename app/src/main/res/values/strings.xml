@@ -1,7 +1,22 @@
 <resources>
     <string name="app_name">FaceAge</string>
-    <string name="admob_showIntersitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+
+
+    <string name="admob_showIntersitial_ad_unit_id" translatable="false">ca-app-pub-2976879956297104/3155013625</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-2976879956297104/5158075022</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-2976879956297104~7245661247</string>
+
+
+
+    <!--Facebook music app    -->
+
+    <string name="facebook_banner" translatable="false">311257849559302_311259216225832</string>
+
+    <string name="facebook_Intersitial" translatable="false">208757320397249_208758977063750</string>
+
+    <string name="facebook_app_id" translatable="false">322712258254362</string>
+
+
     <string name="take_photo">Take a photo</string>
     <string name="title" translatable="false">how old am i looking like</string>
     <string name="proccess">Analyze now</string>
