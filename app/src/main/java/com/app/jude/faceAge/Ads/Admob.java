@@ -133,6 +133,7 @@ public class Admob {
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 // TODO Auto-generated method stub
+                //
                 AudienceNetworkAds.facebookLoadBanner(context,view);
 
                 super.onAdFailedToLoad(errorCode);

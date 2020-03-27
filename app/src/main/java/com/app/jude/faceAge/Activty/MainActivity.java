@@ -30,8 +30,6 @@ import com.app.jude.faceAge.Ads.Admob;
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
 import com.app.jude.faceAge.R;
 
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.FaceServiceClient;
@@ -44,8 +42,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import cdflynn.android.library.checkview.CheckView;
-
-import static com.app.jude.faceAge.Ads.AudienceNetworkAds.adView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -83,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         view=getWindow().getDecorView().getRootView();
 
 
+        //Admob.createLoadInterstitial(getApplicationContext(),null);
         AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);
 
 
@@ -175,15 +171,6 @@ public class MainActivity extends AppCompatActivity {
 
         dismissLoading();
 
-    }
-
-
-    @Override
-    protected void onDestroy() {
-        if (adView != null) {
-            adView.destroy();
-        }
-        super.onDestroy();
     }
 
     private void dismissLoading(){
