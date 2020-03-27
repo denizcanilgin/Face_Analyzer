@@ -1,10 +1,13 @@
 package com.app.jude.faceAge;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
@@ -14,15 +17,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
 import com.microsoft.projectoxford.face.contract.Face;
+
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -37,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView, hidden;
 
     LinearLayout ly_beforePick, ly_beforePickGallery;
+    ImageView iv_settings;
 
     CheckView checkViewTakePhoto, checkViewPickImage;
 
@@ -65,10 +73,18 @@ public class MainActivity extends AppCompatActivity {
         checkViewTakePhoto = findViewById(R.id.checkTakePhoto);
         checkViewPickImage = findViewById(R.id.checkPickImage);
         bt_pickImageFromGallery = findViewById(R.id.bt_pickImageFromGallery);
+        iv_settings = findViewById(R.id.iv_settings);
 
         takePicture = findViewById(R.id.takePic);
         imageView = findViewById(R.id.imageView);
         imageView.setVisibility(View.INVISIBLE);
+
+        iv_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog();
+            }
+        });
 
         process = findViewById(R.id.processClick);
         takePicture.setOnClickListener(new View.OnClickListener() {
@@ -184,8 +200,6 @@ public class MainActivity extends AppCompatActivity {
                         FaceServiceClient.FaceAttributeType.Makeup,
                         FaceServiceClient.FaceAttributeType.Glasses,
 
-
-
                 };
 
                 try {
@@ -269,8 +283,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     private void photoTaken() {
 
         ly_beforePick.setVisibility(View.INVISIBLE);
@@ -289,6 +301,58 @@ public class MainActivity extends AppCompatActivity {
 
         ly_beforePick.setVisibility(View.VISIBLE);
         checkViewTakePhoto.setVisibility(View.INVISIBLE);
+
+    }
+
+    private void showDialog(){
+
+        final Dialog settings_dialog = new Dialog(this);
+        settings_dialog.setCancelable(true);
+        settings_dialog.setContentView(R.layout.settings_dialog);
+        settings_dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        settings_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        TextView tv_rateUsOnGooglePlay = settings_dialog.findViewById(R.id.tv_rateUsOnGooglePlay);
+        TextView tv_aboutUs = settings_dialog.findViewById(R.id.tv_aboutUs);
+
+        tv_aboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeToast("About Clicked");
+
+                Intent i = new Intent(MainActivity.this,AboutActivity.class);
+                startActivity(i);
+
+                settings_dialog.dismiss();
+            }
+        });
+
+
+        tv_rateUsOnGooglePlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeToast("Rate Us Clicked");
+
+                Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                // To count with Play market backstack, After pressing back button,
+                // to taken back to our application, we need to add following flags to intent.
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getApplicationContext().getPackageName())));
+                }
+
+                settings_dialog.dismiss();
+            }
+        });
+
+
+        settings_dialog.show();
 
     }
 
