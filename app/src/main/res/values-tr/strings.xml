@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Duygu Tanıma</string>
+    <string name="app_name">FaceAge</string>
     <string name="age">Yaş:</string>
     <string name="anger">Öfke</string>
     <string name="array_null">Yüz dizisi boş</string>
@@ -27,4 +27,13 @@
     <string name="very_heavy">Çok ağır</string>
     <string name="very_light">Çok hafif</string>
     <string name="yes">Evet</string>
+    <string name="get_now">şimdi al</string>
+    <string name="import_gallery">galeriden içe aktar.</string>
+    <string name="hair_analyze">saç analizi</string>
+    <string name="no_ads">reklam yok</string>
+    <string name="get_premium">şimdi premiuma yükselt!</string>
+    <string name="share_now">paylaş</string>
+    <string name="coming_soon">premium en yakın zamanda sizlerle</string>
+    <string name="title" translatable="false">kaç yaşında gösteriyorum</string>
+    <string name="result_title" translatable="false">hmm.. seni görüyorum</string>
 </resources>

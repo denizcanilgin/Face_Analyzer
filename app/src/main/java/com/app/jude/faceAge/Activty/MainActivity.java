@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,9 +25,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
 import com.app.jude.faceAge.Ads.GoogleAnalyticsApplication;
 import com.app.jude.faceAge.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
@@ -38,10 +48,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import cdflynn.android.library.checkview.CheckView;
+
+import static com.app.jude.faceAge.Ads.Admob.adsLayout1;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
         GoogleAnalyticsApplication application = (GoogleAnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
+
+        mTracker.setScreenName("MainActivity");
+
+// Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
 
         //IMPORTANT!!------------------------------------------------------------------------------
@@ -257,7 +271,6 @@ public class MainActivity extends AppCompatActivity {
         final ByteArrayInputStream inputStream = new ByteArrayInputStream((outputStream.toByteArray()));
 
         AsyncTask<InputStream, String, Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
-            ProgressDialog pd = new ProgressDialog(MainActivity.this);
 
             @Override
             protected Face[] doInBackground(InputStream... inputStreams) {
@@ -442,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
         bt_getPremium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeToast("premium is available soon");
+                makeToast(getString(R.string.coming_soon));
                 premium_dialog.dismiss();
             }
         });
@@ -470,5 +483,7 @@ public class MainActivity extends AppCompatActivity {
 
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
+
+
 
 }

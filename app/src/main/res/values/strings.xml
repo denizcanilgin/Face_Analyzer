@@ -42,4 +42,18 @@
     <string name="moustache">Moustache:</string>
     <string name="beard">Beard:</string>
     <string name="sideburns">Sideburns:</string>
+
+    <string name="coming_soon">premium is available soon</string>
+    <string name="share_now">share now</string>
+
+<!--    Premium Card-->
+    <string name="get_premium">get premium now!</string>
+    <string name="no_ads">no ads.</string>
+    <string name="exposure_level">exposure level</string>
+    <string name="hair_analyze">hair analyze.</string>
+    <string name="import_gallery">import from gallery.</string>
+    <string name="get_now">get now</string>
+
+
+
 </resources>

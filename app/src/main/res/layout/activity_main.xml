@@ -5,36 +5,37 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="15dp"
         android:gravity="end"
         android:paddingTop="25dp"
-        android:paddingEnd="25dp"
-        android:elevation="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:paddingEnd="25dp">
 
         <ImageView
             android:id="@+id/iv_sett"
-            android:src="@drawable/ic_settings_black_24dp"
             android:layout_width="32dp"
-            android:layout_height="32dp"/>
+            android:layout_height="32dp"
+            android:src="@drawable/ic_settings_black_24dp" />
 
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:gravity="start"
-        android:paddingTop="25dp"
-        android:paddingStart="25dp"
-        android:elevation="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:elevation="5dp"
+        android:gravity="start"
+        android:paddingStart="25dp"
+        android:paddingTop="25dp"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/iv_premium"
-            android:src="@drawable/crownicon"
             android:layout_width="52dp"
-            android:layout_height="52dp"/>
+            android:layout_height="52dp"
+            android:src="@drawable/crownicon" />
 
 
     </LinearLayout>
@@ -42,16 +43,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:elevation="15dp"
+        android:gravity="center"
         android:paddingTop="25dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cd"
-            android:textAlignment="center"
             android:text="how old \n am i looking like?"
+            android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="24dp" />
 
@@ -90,14 +91,13 @@
 
             <Button
                 android:id="@+id/takePic"
-                android:background = "@null"
                 android:layout_width="match_parent"
-                android:visibility="visible"
-                android:elevation="50dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                />
+                android:background="@null"
+                android:elevation="50dp"
+                android:visibility="visible" />
 
 
             <LinearLayout
@@ -109,22 +109,23 @@
                 android:padding="15dp">
 
                 <RelativeLayout
-                    android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <LinearLayout
-                        android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    <cdflynn.android.library.checkview.CheckView
-                        android:id="@+id/checkTakePhoto"
-                        android:padding="10dp"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        app:checkView_strokeColor="@color/colorPrimary"
-                        app:checkView_strokeWidth="10dp"/>
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <cdflynn.android.library.checkview.CheckView
+                            android:id="@+id/checkTakePhoto"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:padding="10dp"
+                            app:checkView_strokeColor="@color/colorPrimary"
+                            app:checkView_strokeWidth="10dp" />
                     </LinearLayout>
 
 
@@ -133,25 +134,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
                         android:layout_marginTop="15dp"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:padding="15dp">
 
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_centerInParent="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/cameraicon" />
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_centerInParent="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/cameraicon" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cdbold"
-                        android:text="@string/take_photo">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cdbold"
+                            android:text="@string/take_photo">
 
-                    </TextView>
+                        </TextView>
 
                     </LinearLayout>
 
@@ -163,11 +164,11 @@
 
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="top"
             android:layout_height="175dp"
-
+            android:layout_gravity="top"
             android:layout_marginStart="25dp"
+
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="25dp"
             card_view:cardBackgroundColor="@color/colorGray"
             card_view:cardCornerRadius="15dp"
@@ -175,14 +176,13 @@
 
             <Button
                 android:id="@+id/bt_pickImageFromGallery"
-                android:background = "@null"
                 android:layout_width="match_parent"
-                android:visibility="visible"
-                android:elevation="50dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                />
+                android:background="@null"
+                android:elevation="50dp"
+                android:visibility="visible" />
 
 
             <LinearLayout
@@ -194,41 +194,42 @@
                 android:padding="15dp">
 
                 <RelativeLayout
-                    android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <LinearLayout
-                        android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
                         <cdflynn.android.library.checkview.CheckView
                             android:id="@+id/checkPickImage"
-                            android:padding="10dp"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
+                            android:padding="10dp"
                             app:checkView_strokeColor="@color/colorPrimary"
-                            app:checkView_strokeWidth="10dp"/>
+                            app:checkView_strokeWidth="10dp" />
                     </LinearLayout>
 
 
                     <LinearLayout
-                        android:alpha="0.5"
                         android:id="@+id/ly_beforePickGallery"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
                         android:layout_marginTop="15dp"
+                        android:alpha="0.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:padding="15dp">
 
                         <ImageView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:alpha="0.8"
                             android:layout_centerInParent="true"
+                            android:alpha="0.8"
                             android:scaleType="centerCrop"
                             android:src="@drawable/ic_image_black_24dp" />
 
@@ -249,14 +250,13 @@
         </androidx.cardview.widget.CardView>
 
 
-
         <LinearLayout
 
-            android:layout_marginTop="25dp"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
 
             >
 
@@ -271,20 +271,20 @@
 
                 <Button
                     android:id="@+id/processClick"
-                    android:fontFamily="@font/cdbold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:textAllCaps="false"
-                    android:textSize="18dp"
-                    android:padding="5dp"
-                    android:paddingStart="15dp"
-                    android:drawablePadding="-30dp"
-                    android:drawableLeft="@drawable/mainiconsmall"
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/button_state"
+                    android:drawableLeft="@drawable/mainiconsmall"
+                    android:drawablePadding="-30dp"
+                    android:fontFamily="@font/cdbold"
+                    android:padding="5dp"
+                    android:paddingStart="15dp"
                     android:text="@string/proccess"
-                    android:textColor="#fff" />
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -295,16 +295,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="bottom"
-            android:visibility="invisible"
-            >
+            android:visibility="invisible">
 
 
             <LinearLayout
                 android:id="@+id/adViewContainer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_height="wrap_content"
                 android:gravity="center"
+                android:orientation="vertical"
 
                 >
 
@@ -316,16 +315,9 @@
                     app:adUnitId="ca-app-pub-2976879956297104/5158075022">
 
                 </com.google.android.gms.ads.AdView>
-                <!--        ca-app-pub-2976879956297104/5158075022-->
+
             </LinearLayout>
         </LinearLayout>
-
-
-
-
-
-
-
 
 
     </LinearLayout>
@@ -336,7 +328,6 @@
         android:gravity="bottom|center"
         android:paddingTop="10dp"
         android:paddingBottom="30dp">
-
 
 
     </LinearLayout>
@@ -350,36 +341,35 @@
 
     <RelativeLayout
         android:id="@+id/ly_loading"
-        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:elevation="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:gravity="center">
 
         <LinearLayout
-        android:gravity="center"
-        android:background="@color/colorWhite"
-        android:alpha="0.9"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </LinearLayout>
-
-        <LinearLayout
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/loadingLogo"
-            android:layout_gravity="center"
-            android:src="@drawable/logo"
-            android:layout_width="74dp"
-            android:layout_height="74dp"/>
+            android:layout_height="match_parent"
+            android:alpha="0.9"
+            android:background="@color/colorWhite"
+            android:gravity="center">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/loadingLogo"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo" />
         </LinearLayout>
 
 
-
     </RelativeLayout>
-
 
 
 </RelativeLayout>

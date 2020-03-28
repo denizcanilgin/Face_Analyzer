@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">भावना मान्यता</string>
+    <string name="app_name">FaceAge</string>
     <string name="age">उम्र:</string>
     <string name="anger">गुस्सा</string>
     <string name="array_null">चेहरा सरणी शून्य है</string>
@@ -27,4 +27,14 @@
     <string name="very_heavy">बहुत भारी</string>
     <string name="very_light">बहुत हल्का</string>
     <string name="yes">हाँ</string>
+    <string name="get_now">अब प्राप्त करें</string>
+    <string name="import_gallery">गैलरी से आयात।</string>
+    <string name="hair_analyze">बाल विश्लेषण</string>
+    <string name="result_title" translatable="false">हम्म .. मैं तुम्हें देखता हूँ</string>
+    <string name="coming_soon">प्रीमियम जल्द ही उपलब्ध है</string>
+    <string name="share_now">अब साझा करें</string>
+    <string name="get_premium">अब प्रीमियम प्राप्त करें!</string>
+    <string name="no_ads">विज्ञापन नहीं।</string>
+    <string name="exposure_level">एक्सपोज़र स्तर</string>
+    <string name="title" translatable="false">मैं कितनी उम्र का लग रहा हूँ</string>
 </resources>

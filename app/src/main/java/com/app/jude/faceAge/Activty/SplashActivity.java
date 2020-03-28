@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">التعرف على الانفعالات</string>
+    <string name="app_name">FaceAge</string>
     <string name="age">عمر:</string>
     <string name="anger">الغضب</string>
     <string name="array_null">صفيف الوجه فارغ</string>
@@ -27,4 +27,14 @@
     <string name="very_heavy">ثقيل جدا</string>
     <string name="very_light">خفيف جدا</string>
     <string name="yes">نعم</string>
+    <string name="coming_soon">قسط متاح قريبا</string>
+    <string name="share_now">شارك الآن</string>
+    <string name="get_premium">احصل على قسط الآن!</string>
+    <string name="no_ads">لا اعلانات.</string>
+    <string name="exposure_level">مستوى التعرض</string>
+    <string name="hair_analyze">تحليل الشعر.</string>
+    <string name="import_gallery">استيراد من المعرض.</string>
+    <string name="get_now">احصل الان</string>
+    <string name="result_title" translatable="false">همم .. أنا أراك</string>
+    <string name="title" translatable="false">كم يبدو عمري</string>
 </resources>

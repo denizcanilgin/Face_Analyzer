@@ -51,8 +51,8 @@ public class CustomAdapter extends BaseAdapter {
         cardViewArrayList = new ArrayList<>();
         buttonArrayList = new ArrayList<>();
 
-        GoogleAnalyticsApplication application = (GoogleAnalyticsApplication) context;
-        mTracker = application.getDefaultTracker();
+//        GoogleAnalyticsApplication application = (GoogleAnalyticsApplication) context;
+//        mTracker = application.getDefaultTracker();
     }
 
 
@@ -101,10 +101,10 @@ public class CustomAdapter extends BaseAdapter {
                 buttonArrayList.get(position).setText("FaceAge - how old do i look like");
                 shareIntent(screenShot(cardViewArrayList.get(position)));
                 buttonArrayList.get(position).setText("share");
-                mTracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Action")
-                        .setAction("Share")
-                        .build());
+//                mTracker.send(new HitBuilders.EventBuilder()
+//                        .setCategory("Action")
+//                        .setAction("Share")
+//                        .build());
 
             }
         });

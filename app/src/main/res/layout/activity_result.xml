@@ -33,7 +33,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="70dp"
             android:src="@drawable/bg" />
     </LinearLayout>
 
@@ -60,20 +60,20 @@
 
 
 
-
     <LinearLayout
+        android:id="@+id/adslayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        >
+        android:visibility="invisible">
 
 
         <LinearLayout
-            android:id="@+id/adViewContainer1"
+            android:id="@+id/adViewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
 
             >
 
@@ -81,13 +81,14 @@
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:adSize="LARGE_BANNER"
+                app:adSize="SMART_BANNER"
                 app:adUnitId="ca-app-pub-2976879956297104/5158075022">
 
             </com.google.android.gms.ads.AdView>
-            <!--        ca-app-pub-2976879956297104/5158075022-->
+
         </LinearLayout>
     </LinearLayout>
+
 
 
 

@@ -45,13 +45,26 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="backgroundImage">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="scalingPercent" value="70" />
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="foregroundImage">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="56" />
+                                                <entry key="scalingPercent" value="81" />
+                                                <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -61,9 +74,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="fffdf8" />
-                                      <entry key="foregroundImage" value="$USER_HOME$/Desktop/logo.png" />
+                                      <entry key="backgroundImage" value="$USER_HOME$/Desktop/logobg.png" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Desktop/logoforeground.png" />
+                                      <entry key="generatePlayStoreIcon" value="false" />
                                     </map>
                                   </option>
                                 </PersistentState>

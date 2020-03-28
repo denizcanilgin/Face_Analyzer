@@ -163,7 +163,7 @@
 
             <Button
                 android:id="@+id/bt_share"
-                android:text="share now"
+                android:text="@string/share_now"
                 android:textAllCaps="false"
                 android:fontFamily="@font/cdbold"
                 android:layout_marginTop="5dp"
