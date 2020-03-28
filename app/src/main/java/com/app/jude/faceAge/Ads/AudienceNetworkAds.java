@@ -29,10 +29,9 @@ public class AudienceNetworkAds {
 
 
 
-    public static void facebookLoadBanner(final Context context, final View view)
-    {
+    public static void facebookLoadBanner(final Context context, final View rootView) {
 
-        adViewContainer = (LinearLayout) view.findViewById(R.id.adViewContainer);
+        adViewContainer = (LinearLayout) rootView.findViewById(R.id.adViewContainer);
 
         adView = new AdView(context, context.getResources().getString(R.string.facebook_banner)
                 , AdSize.BANNER_HEIGHT_50);
@@ -47,7 +46,7 @@ public class AudienceNetworkAds {
             public void onError(Ad ad, AdError adError) {
 
                 Log.i("FacebookAD","info: "+ adError);
-               Admob.createLoadBanner(context, view);
+               Admob.createLoadBanner(context, rootView);
 
 
             }

@@ -28,9 +28,12 @@ import android.widget.Toast;
 
 import com.app.jude.faceAge.Ads.Admob;
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
+import com.app.jude.faceAge.Ads.GoogleAnalyticsApplication;
 import com.app.jude.faceAge.R;
 
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button process, takePicture, bt_pickImageFromGallery;
     ImageView imageView, hidden;
-
+    private Tracker mTracker;
 
     LinearLayout ly_beforePick, ly_beforePickGallery;
     RelativeLayout rl_loading;
@@ -60,12 +63,16 @@ public class MainActivity extends AppCompatActivity {
     Bitmap mBitmap;
     Boolean ready = false;
 
+
     @Override
     protected void onResume() {
         super.onResume();
-//        makeToast("onResume");
+
+        mTracker.setScreenName("FaceAge-Ana Ekran");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         //Admob.createLoadInterstitial(getApplicationContext(),null);
         AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);
 
+        GoogleAnalyticsApplication application = (GoogleAnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
 
 
         //IMPORTANT!!------------------------------------------------------------------------------

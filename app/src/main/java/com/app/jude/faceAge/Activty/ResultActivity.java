@@ -1,26 +1,31 @@
 package com.app.jude.faceAge.Activty;
 
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
+import com.app.jude.faceAge.Ads.GoogleAnalyticsApplication;
 import com.app.jude.faceAge.CustomAdapter;
 import com.app.jude.faceAge.R;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.contract.Face;
 
-public class ResultActivity extends AppCompatActivity {
+import static com.app.jude.faceAge.Ads.AudienceNetworkAds.adView;
 
+
+public class ResultActivity extends AppCompatActivity {
     String data;
     byte[] byteArray;
-    public View view;
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,11 @@ public class ResultActivity extends AppCompatActivity {
 
          data = getIntent().getStringExtra("list_faces");
          AudienceNetworkAds.facebookInterstitialAd(this);
+     //    AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);
+
+        GoogleAnalyticsApplication application = (GoogleAnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
 
 
         Gson gson = new Gson();
@@ -56,9 +66,24 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mTracker.setScreenName("Sonuç Ekranı");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+
+    }
     private void makeToast(String s) {
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
     }
-
 
 }
