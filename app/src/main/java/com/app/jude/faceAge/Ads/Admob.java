@@ -3,6 +3,7 @@ package com.app.jude.faceAge.Ads;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.app.jude.faceAge.R;
 import com.google.android.gms.ads.AdListener;
@@ -15,7 +16,7 @@ public class Admob {
 
     public static InterstitialAd mInterstitial;
     private static AdView mAdView;
-
+    public static LinearLayout adsLayout1;
     public static void createLoadInterstitial(final Activity context)
 
     {
@@ -86,6 +87,7 @@ public class Admob {
 
     public static void createLoadBanner(final Context context, final View view) {
         mAdView = (AdView) view.findViewById(R.id.adView);
+        adsLayout1 = (LinearLayout) view.findViewById(R.id.adslayout);
         AdRequest adRequest = new AdRequest.Builder().build();
 
 
@@ -102,6 +104,7 @@ public class Admob {
             public void onAdLoaded() {
                 // TODO Auto-generated method stub
 
+                adsLayout1.setVisibility(View.VISIBLE);
 
                 super.onAdLoaded();
             }

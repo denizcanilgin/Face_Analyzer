@@ -25,13 +25,14 @@ public class AudienceNetworkAds {
     public static InterstitialAd interstitialAd;
     public static LinearLayout adViewContainer;
     public static Context cnt;
-
+    public static LinearLayout adsLayout;
 
 
 
     public static void facebookLoadBanner(final Context context, final View rootView) {
 
         adViewContainer = (LinearLayout) rootView.findViewById(R.id.adViewContainer);
+        adsLayout = (LinearLayout) rootView.findViewById(R.id.adslayout);
 
         adView = new AdView(context, context.getResources().getString(R.string.facebook_banner)
                 , AdSize.BANNER_HEIGHT_50);
@@ -54,6 +55,7 @@ public class AudienceNetworkAds {
             @Override
             public void onAdLoaded(Ad ad) {
 
+                adsLayout.setVisibility(View.VISIBLE);
             }
 
             @Override

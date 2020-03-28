@@ -11,11 +11,8 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -26,12 +23,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.jude.faceAge.Ads.Admob;
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
 import com.app.jude.faceAge.Ads.GoogleAnalyticsApplication;
 import com.app.jude.faceAge.R;
-
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
@@ -44,6 +38,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import cdflynn.android.library.checkview.CheckView;
 
 public class MainActivity extends AppCompatActivity {
@@ -119,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showPremiumDialog();
+
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Premium")
+                        .build());
             }
         });
 
@@ -157,6 +159,12 @@ public class MainActivity extends AppCompatActivity {
         process.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Analiz sayısı")
+                        .build());
 //                Bitmap icon = BitmapFactory.decodeResource(getApplicationContext().getResources(),
 //                        R.drawable.murat2);
 //

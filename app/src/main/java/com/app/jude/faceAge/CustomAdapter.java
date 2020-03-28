@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.app.jude.faceAge.Ads.GoogleAnalyticsApplication;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.microsoft.projectoxford.face.contract.Face;
 import com.microsoft.projectoxford.face.contract.FaceRectangle;
 
@@ -23,12 +25,15 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+import androidx.cardview.widget.CardView;
+
 public class CustomAdapter extends BaseAdapter {
 
     private Face[] faces;
     private Context context;
     private LayoutInflater inflater;
     private Bitmap orig;
+    private Tracker mTracker;
 
     ImageView deneme;
     Button bt_share;
@@ -45,7 +50,11 @@ public class CustomAdapter extends BaseAdapter {
         this.orig = orig;
         cardViewArrayList = new ArrayList<>();
         buttonArrayList = new ArrayList<>();
+
+        GoogleAnalyticsApplication application = (GoogleAnalyticsApplication) context;
+        mTracker = application.getDefaultTracker();
     }
+
 
 
     @Override
@@ -92,7 +101,10 @@ public class CustomAdapter extends BaseAdapter {
                 buttonArrayList.get(position).setText("FaceAge - how old do i look like");
                 shareIntent(screenShot(cardViewArrayList.get(position)));
                 buttonArrayList.get(position).setText("share");
-
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Share")
+                        .build());
 
             }
         });

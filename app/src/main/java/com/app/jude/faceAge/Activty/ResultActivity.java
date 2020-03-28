@@ -3,21 +3,21 @@ package com.app.jude.faceAge.Activty;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-
 
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
 import com.app.jude.faceAge.Ads.GoogleAnalyticsApplication;
 import com.app.jude.faceAge.CustomAdapter;
 import com.app.jude.faceAge.R;
-
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.face.contract.Face;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.app.jude.faceAge.Ads.AudienceNetworkAds.adView;
 
@@ -26,6 +26,7 @@ public class ResultActivity extends AppCompatActivity {
     String data;
     byte[] byteArray;
     private Tracker mTracker;
+    public View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
 
          data = getIntent().getStringExtra("list_faces");
          AudienceNetworkAds.facebookInterstitialAd(this);
-     //    AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);
+         AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);
 
         GoogleAnalyticsApplication application = (GoogleAnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
