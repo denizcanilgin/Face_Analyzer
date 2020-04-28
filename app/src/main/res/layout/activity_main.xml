@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:elevation="15dp"
-        android:gravity="end"
+
         android:paddingTop="25dp"
         android:paddingEnd="25dp">
 
@@ -16,10 +16,17 @@
             android:id="@+id/iv_sett"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_alignParentRight="true"
             android:src="@drawable/ic_settings_black_24dp" />
+        <ImageView
+            android:id="@+id/iv_premium2"
+            android:layout_width="32dp"
+            android:layout_marginLeft="30dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/rocket" />
 
-
-    </LinearLayout>
+    </RelativeLayout>
 
 
     <LinearLayout
@@ -67,6 +74,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_marginTop="-20dp"
             android:layout_marginBottom="50dp"
             android:src="@drawable/bg" />
     </LinearLayout>
@@ -101,6 +109,7 @@
 
 
             <LinearLayout
+                android:id="@+id/line1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -186,6 +195,7 @@
 
 
             <LinearLayout
+                android:id="@+id/line2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -251,7 +261,7 @@
 
 
         <LinearLayout
-
+            android:id="@+id/line3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -285,6 +295,9 @@
                     android:textAllCaps="false"
                     android:textColor="#fff"
                     android:textSize="18dp" />
+
+
+
 
             </androidx.cardview.widget.CardView>
 

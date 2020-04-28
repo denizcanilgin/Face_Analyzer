@@ -4,7 +4,8 @@
     android:layout_height="match_parent">
 
 
-    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +21,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@drawable/bg_button_rounded"></LinearLayout>
+            android:background="@drawable/bg_button_rounded">
+
+        </LinearLayout>
 
 
         <LinearLayout

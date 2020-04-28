@@ -3,9 +3,7 @@ package com.app.jude.faceAge.Activty;
 import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -18,6 +16,8 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,17 +25,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.android.billingclient.api.BillingClient;
 import com.app.jude.faceAge.Ads.AudienceNetworkAds;
 import com.app.jude.faceAge.Ads.GoogleAnalyticsApplication;
 import com.app.jude.faceAge.R;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
@@ -48,27 +47,33 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import cdflynn.android.library.checkview.CheckView;
 
-import static com.app.jude.faceAge.Ads.Admob.adsLayout1;
+import androidx.recyclerview.widget.RecyclerView;
+import cdflynn.android.library.checkview.CheckView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button process, takePicture, bt_pickImageFromGallery;
+    Button process, takePicture, bt_pickImageFromGallery, bt_getPremium;
     ImageView imageView, hidden;
     private Tracker mTracker;
 
     LinearLayout ly_beforePick, ly_beforePickGallery;
     RelativeLayout rl_loading;
-    ImageView iv_settings, loadingLogo,iv_premium;
+    ImageView iv_settings, loadingLogo,iv_premium, iv_premium2;
 
     CheckView checkViewTakePhoto, checkViewPickImage;
-
     public View view;
     private FaceServiceClient faceServiceClient;
     Bitmap mBitmap;
     Boolean ready = false;
 
+    private BillingClient billingClient;
+    private static final String TAG = "InAppBilling";
+
+
+    Button loadPoduct;
+    RecyclerView recyclerProduct;
+    Animation left,right,top;
 
     @Override
     protected void onResume() {
@@ -91,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
         view=getWindow().getDecorView().getRootView();
 
 
+
+
+
         //Admob.createLoadInterstitial(getApplicationContext(),null);
         AudienceNetworkAds.facebookLoadBanner(getApplicationContext(), view);
 
@@ -99,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         mTracker.setScreenName("MainActivity");
 
-// Send a screen view.
+            // Send a screen view.
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
 
@@ -114,10 +122,33 @@ public class MainActivity extends AppCompatActivity {
         bt_pickImageFromGallery = findViewById(R.id.bt_pickImageFromGallery);
         iv_settings = findViewById(R.id.iv_sett);
 
+        iv_premium2 =findViewById(R.id.iv_premium2);
         iv_premium = findViewById(R.id.iv_premium);
         takePicture = findViewById(R.id.takePic);
         imageView = findViewById(R.id.imageView);
         imageView.setVisibility(View.INVISIBLE);
+
+        left = AnimationUtils.loadAnimation(this,R.anim.left);
+        right = AnimationUtils.loadAnimation(this, R.anim.right);
+        top = AnimationUtils.loadAnimation(this, R.anim.top);
+
+
+        LinearLayout l1 = findViewById(R.id.line1);
+        LinearLayout l2 = findViewById(R.id.line2);
+        LinearLayout l3 = findViewById(R.id.line3);
+
+        l1.setAnimation(left);
+        l2.setAnimation(right);
+        l3.setAnimation(left);
+        iv_premium2.setAnimation(top);
+
+
+        iv_premium2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPremiumDialog();
+            }
+        });
 
         iv_settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +168,9 @@ public class MainActivity extends AppCompatActivity {
                         .build());
             }
         });
+
+
+
 
         process = findViewById(R.id.processClick);
         takePicture.setOnClickListener(new View.OnClickListener() {
@@ -204,6 +238,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void dismissLoading(){
 
         loadingLogo.setVisibility(View.GONE);
@@ -231,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         //Image Picked
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 101) {
             if (resultCode == RESULT_OK) {
 
@@ -242,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
                     this.mBitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
                     ready = true;
 
-                }catch (IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 
@@ -401,6 +438,24 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv_rateUsOnGooglePlay = settings_dialog.findViewById(R.id.tv_rateUsOnGooglePlay);
         TextView tv_aboutUs = settings_dialog.findViewById(R.id.tv_aboutUs);
+        TextView tv_privacyPolicy = settings_dialog.findViewById(R.id.tv_privacyPolicy);
+
+        tv_privacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = "https://docs.google.com/document/d/1-Mb5oMxllEn_vzIyPDcUz9FvRbW6bygNtHeyuc888DQ/edit?usp=sharing";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+
+                settings_dialog.dismiss();
+
+
+            }
+        });
+
+
 
         tv_aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -451,39 +506,41 @@ public class MainActivity extends AppCompatActivity {
         premium_dialog.getWindow().setLayout(WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
         premium_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-        Button bt_getPremium = premium_dialog.findViewById(R.id.bt_getPremium);
+        bt_getPremium = premium_dialog.findViewById(R.id.bt_getPremium);
+
         bt_getPremium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                makeToast(getString(R.string.coming_soon));
-                premium_dialog.dismiss();
-            }
-        });
+              //  makeToast(getString(R.string.coming_soon));
 
+
+                    }
+
+
+        });
 
 
         premium_dialog.show();
 
     }
 
-    public Bitmap makeSmallerImage(Bitmap image, int maximumSize) {
-
-        int width = image.getWidth();
-        int height = image.getHeight();
-
-        float bitmapRatio = (float) width / (float) height;
-
-        if (bitmapRatio > 1) {
-            width = maximumSize;
-            height = (int) (width / bitmapRatio);
-        } else {
-            height = maximumSize;
-            width = (int) (height * bitmapRatio);
-        }
-
-        return Bitmap.createScaledBitmap(image, width, height, true);
-    }
-
+//    public Bitmap makeSmallerImage(Bitmap image, int maximumSize) {
+//
+//        int width = image.getWidth();
+//        int height = image.getHeight();
+//
+//        float bitmapRatio = (float) width / (float) height;
+//
+//        if (bitmapRatio > 1) {
+//            width = maximumSize;
+//            height = (int) (width / bitmapRatio);
+//        } else {
+//            height = maximumSize;
+//            width = (int) (height * bitmapRatio);
+//        }
+//
+//        return Bitmap.createScaledBitmap(image, width, height, true);
+//    }
 
 
 }

@@ -12,7 +12,7 @@
     <string name="facebook_app_id" translatable="false">526424688014428</string>
 
     <string name="ga_trackingId" translatable="false"></string>
-
+    <string name="pref_ad_removal_purchased">Item purchased</string>
 
     <string name="take_photo">Take a photo</string>
     <string name="title" translatable="false">how old am i looking like</string>
@@ -46,14 +46,16 @@
     <string name="coming_soon">premium is available soon</string>
     <string name="share_now">share now</string>
 
-<!--    Premium Card-->
+    <!--    Premium Card-->
     <string name="get_premium">get premium now!</string>
     <string name="no_ads">no ads.</string>
     <string name="exposure_level">exposure level</string>
     <string name="hair_analyze">hair analyze.</string>
     <string name="import_gallery">import from gallery.</string>
     <string name="get_now">get now</string>
-
+    <string name="rate_us">Rate us on Google Play</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="about">About</string>
 
 
 </resources>

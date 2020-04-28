@@ -151,7 +151,7 @@
 
                     <ImageView
                         android:layout_gravity="center"
-                        android:src="@drawable/rocket"
+                        android:src="@drawable/rocketicon"
                         android:layout_marginStart="25dp"
                         android:layout_width="52dp"
                         android:layout_height="52dp"/>
